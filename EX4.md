@@ -11,7 +11,31 @@
 6. Display the employee table
 
 ### Program:
+```
+CREATE TABLE ep4(
+       empid NUMBER,
+       empname VARCHAR(10),
+       dept VARCHAR(10),
+       salary NUMBER
+       );
+       CREATE OR REPLACE PROCEDURE emp_data AS
+       BEGIN
+       INSERT INTO ep4(empid,empname,dept,salary)
+       values(1,'thanika','MD',10000000);
+       INSERT INTO ep4(empid,empname,dept,salary)
+       values(2,'priya','HR',500000);
+       INSERT INTO ep4(empid,empname,dept,salary)
+       values(3,'swetha','IT',200000);
+       COMMIT;
+       FOR emp_rec IN (SELECT * FROM ep4)LOOP
+       DBMS_OUTPUT.PUT_LINE('EMPLOYEE ID:'||emp_rec.empid||',EMPLOYEE NAME:'|| emp_rec.empname||
+       ',DEPARTMENT:'||emp_rec.dept||',SALARY:'||emp_rec.salary);
+       END LOOP;
+       END;
+```
 
 ### Output:
+![Screenshot (48)](https://github.com/dineshgl/Ex-No-4-Creating-Procedures-using-PL-SQL/assets/119557910/20fee2a3-3e97-4494-9d04-7bdca88b215f)
 
 ### Result:
+Thus,the output has been successfully verified!
